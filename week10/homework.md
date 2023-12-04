@@ -48,10 +48,10 @@ You should see this:
 
 Here `<value>` is the probability of getting a credit card. You need to choose the right one.
 
-* 0.3269
-* 0.5269
-**0.7269**
-* 0.9269
+- 0.3269
+- 0.5269
+- **0.7269**
+- 0.9269
 
 Now you can stop the container running in Docker.
 
@@ -107,10 +107,10 @@ we need to register it with `kind`.
 
 What's the command we need to run for that?
 
-* `kind create cluster`
-* `kind build node-image`
-**`kind load docker-image`**
-* `kubectl apply`
+- `kind create cluster`
+- `kind build node-image`
+- **`kind load docker-image`**
+- `kubectl apply`
 
 
 ## Question 5
