@@ -50,7 +50,7 @@ Here `<value>` is the probability of getting a credit card. You need to choose t
 
 * 0.3269
 * 0.5269
-* 0.7269
+**0.7269**
 * 0.9269
 
 Now you can stop the container running in Docker.
@@ -69,6 +69,8 @@ You need to install:
 What's the version of `kind` that you have? 
 
 Use `kind --version` to find out.
+
+**Answer: kind version 0.11.1**
 
 
 ## Creating a cluster
@@ -90,7 +92,13 @@ kubectl cluster-info
 
 Now let's test if everything works. Use `kubectl` to get the list of running services. 
 
-What's `CLUSTER-IP` of the service that is already running there? 
+What's `CLUSTER-IP` of the service that is already running there?
+
+| NAME        | TYPE       | CLUSTER-IP | EXTERNAL-IP | PORT(S) | AGE  |
+|-------------|------------|------------|-------------|---------|------|
+| kubernetes  | ClusterIP  | 10.96.0.1  | <none>      | 443/TCP | 70s|
+
+
 
 ## Question 4
 
@@ -101,7 +109,7 @@ What's the command we need to run for that?
 
 * `kind create cluster`
 * `kind build node-image`
-* `kind load docker-image`
+**`kind load docker-image`**
 * `kubectl apply`
 
 
@@ -140,7 +148,7 @@ spec:
 
 Replace `<Image>`, `<Memory>`, `<CPU>`, `<Port>` with the correct values.
 
-What is the value for `<Port>`?
+What is the value for `<Port>`?  **9696**
 
 Apply this deployment using the appropriate command and get a list of running Pods. 
 You can see one running Pod.
@@ -168,6 +176,10 @@ Fill it in. What do we need to write instead of `<???>`?
 
 Apply this config file.
 
+forward port:
+`kubectl port-forward service/credit 9696:80`
+test port:
+`curl -X POST -H "Content-Type: application/json" -d '{"job": "retired", "duration": 445, "poutcome": "success"}' http://localhost:9696/predict`
 
 ## Testing the service
 
